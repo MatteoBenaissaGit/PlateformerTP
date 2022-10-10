@@ -64,12 +64,13 @@ namespace Enemy
         {
             Damageable damageable = col.gameObject.GetComponent<Damageable>();
 
-            if (damageable != null && damageable.GetComponent<CharacterLifeManager>()) return;
-
             if (damageable != null)
             {
+                if (damageable.GetComponent<CharacterLifeManager>()) return;
+
                 damageable.TakeDamage(ShootDamage);
             }
+
             Destroy();
         }
 

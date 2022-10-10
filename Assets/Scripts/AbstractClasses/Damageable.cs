@@ -19,10 +19,10 @@ public abstract class Damageable : MonoBehaviour
     public virtual void TakeDamage(int damage)
     {
         CurrentLife -= damage;
-        sound.PlayerDamage(true);
+        if (sound!=null) sound.PlayerDamage(true);
         if (CurrentLife <= 0)
         {
-            sound.PlayerDefeat(true);
+            if (sound!=null) sound.PlayerDefeat(true);
             Die();
         }
     }
