@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 public class CharacterLifeManager : Damageable
 {
     [Header("References")]
@@ -37,7 +38,8 @@ public class CharacterLifeManager : Damageable
     
     protected override void Die()
     {
-        print("Die");    
+        print("Die");
+        SceneManager.LoadScene("MenuScene");
     }
     
     public void UpdateLifeUI()
