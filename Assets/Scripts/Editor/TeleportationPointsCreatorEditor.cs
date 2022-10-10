@@ -8,6 +8,8 @@ public class TeleportationPointsCreatorEditor : Editor
 {
     public override void OnInspectorGUI()
     {
+#if UNITY_EDITOR
+
         DrawDefaultInspector();
         var myScript = (TeleportationPointsCreator)target;
         if(GUILayout.Button("Create A Teleportation Point"))
@@ -19,4 +21,5 @@ public class TeleportationPointsCreatorEditor : Editor
             myScript.DeleteAllPoints();
         }
     }
+#endif    
 }
