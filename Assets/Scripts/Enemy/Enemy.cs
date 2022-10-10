@@ -13,6 +13,9 @@ namespace Enemy
     [RequireComponent(typeof(Animator))]
     public class Enemy : Damageable
     {
+        private Sound sound;
+
+
         [Header("Enemy")]
         [SerializeField, Range(0,20)] 
         private float _walkSpeed;
@@ -60,6 +63,7 @@ namespace Enemy
             
             //TODO change by referencing _playerTransform from the spawning
             _characterTransform = FindObjectOfType<CharacterController>().transform;
+            sound = Sound.Instance;
         }
 
         private void ChangeEnemyState(EnemyState enemyState)
@@ -227,6 +231,7 @@ namespace Enemy
 
         protected override void Die()
         {
+            sound.EnemyDead(true);
             Destroy(gameObject);
         }
 
