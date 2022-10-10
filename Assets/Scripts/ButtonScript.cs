@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,9 +12,16 @@ public class ButtonScript : MonoBehaviour
     {
         sound = Sound.Instance;
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Return))
+            PlayButton();
+    }
+
     public void PlayButton()
     {
-        sound.MenuClick(true);
+        //sound.MenuClick(true);
         SceneManager.LoadScene("GameScene");
     }
 }
